@@ -1,7 +1,13 @@
 import React from 'react'
 import Toast from 'react-bootstrap/Toast';
+import ItemCount from './ItemCount';
 
 export default function ItemListContainer() {
+
+  const onAdd = (quantity) => {
+    alert(`Agregaste ${quantity} productos`)
+  }
+
   return (
     <Toast>
     <Toast.Header>
@@ -10,6 +16,7 @@ export default function ItemListContainer() {
       <small>11 mins ago</small>
     </Toast.Header>
     <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+    <ItemCount initial={1} stock={5} onAdd={onAdd}/>
   </Toast>
   )
 }
