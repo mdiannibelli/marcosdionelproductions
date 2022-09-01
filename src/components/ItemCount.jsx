@@ -16,12 +16,6 @@ export default function ItemCount({initial, stock, onAdd}) {
   return (
 
     <Card  bg="light" style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Product Name</Card.Title>
-        <Card.Text>
-          Some description of the product
-        </Card.Text>
         <div className='counter'>
         <Button disabled={counter <= 1} className='buttonCounter' size="sm" variant="outline-dark" onClick={decrease}>-</Button>
             <h1>{counter}</h1>
@@ -30,7 +24,6 @@ export default function ItemCount({initial, stock, onAdd}) {
         <div>
         <Button disabled= {stock <= 0} onClick={() => onAdd(counter)} variant="outline-dark">Add product to cart</Button>
         </div>
-      </Card.Body>
     </Card>
   )
 }

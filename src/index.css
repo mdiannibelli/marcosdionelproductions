@@ -31,3 +31,8 @@ code {
 .counter h1 {
   font-size: 1.5rem;
 }
+
+.productList {
+  display: flex;
+  justify-content: center;
+}
