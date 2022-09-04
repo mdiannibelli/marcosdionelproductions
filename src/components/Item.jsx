@@ -7,6 +7,7 @@ const Item = ({info}) => {
       <Card.Img variant="top" src={info.img} />
       <Card.Body>
         <Card.Title>{info.name}</Card.Title>
+        <Card.Title>${info.price}</Card.Title>
         <Card.Text>
           {info.description}
         </Card.Text>
