@@ -4,7 +4,10 @@ import Item from './Item'
 
 export default function ItemList({data = []}) {
   return (
-    data.map(product =><Item key={product.id} info={product} />)
+    <div className='itemListContainer'>
+      {data.map(product =><Item key={product.id} info={product} />)}
+    </div>
+      
   )
 }
 

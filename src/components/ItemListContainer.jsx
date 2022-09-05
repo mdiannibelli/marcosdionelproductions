@@ -88,16 +88,17 @@ export default function ItemListContainer() {
   }
 
   return (
-    
-    <Toast>
+    <>
+    {/* <Toast>
     <Toast.Header>
       <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
       <strong className="me-auto">Bootstrap</strong>
       <small>11 mins ago</small>
     </Toast.Header> 
     <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
-    <ItemCount initial={1} stock={5} onAdd={onAdd}/>
+  </Toast> */}
+   <ItemCount initial={1} stock={5} onAdd={onAdd}/>
     {loading ? <SpinnerLoading />: <ItemList data={data} />}
-  </Toast>
+    </>
   )
 }

@@ -36,3 +36,62 @@ code {
   display: flex;
   justify-content: center;
 }
+
+.detailContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.detailImg {
+  width: 420px;
+}
+
+.detail {
+  display: flex;
+}
+
+.detailContent {
+  width: 720px;
+}
+
+.detailContent h1 {
+  opacity: 0.9;
+  margin-top: 46px;
+}
+
+.itemListContainer {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-row-gap: 32px;
+}
+
+.h1Detail {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 3.5rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.detailContent h4 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.detailContent p {
+  margin-top: 24px;
+}
+.h4Detail {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  color: red;
+  font-weight: 600;
+}
+
+.pDetail {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
