@@ -4,8 +4,10 @@ import Spinner from 'react-bootstrap/Spinner';
 
 export default function SpinnerLoading() {
   return (
-    <Button variant="light" disabled>
+    <div className="d-grid gap-2">
+    <Button variant="light" size='lg' disabled>
       <Spinner
+        position='middle-center'
         as="span"
         animation="border"
         size="sm"
@@ -14,5 +16,6 @@ export default function SpinnerLoading() {
       />
       Loading...
     </Button>
+    </div>
   )
 }

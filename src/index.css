@@ -14,10 +14,18 @@ code {
 
 .counter {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   justify-items: center;
   align-items: center;
-  margin: 10px;
+  margin-left: -10px;
+  gap: 10px;
+}
+
+.counterDetail {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 80px;
 }
 
 .buttonCounter {
@@ -54,7 +62,7 @@ code {
   width: 720px;
 }
 
-.detailContent h1 {
+.h1Detail {
   opacity: 0.9;
   margin-top: 46px;
 }
@@ -76,6 +84,12 @@ code {
   justify-content: flex-start;
 }
 
+.detailContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .detailContent h4 {
   display: flex;
   justify-content: flex-end;
@@ -86,12 +100,16 @@ code {
 }
 .h4Detail {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
-  color: red;
+  font-size: 1.6rem;
+  color: #dc3545;
   font-weight: 600;
 }
 
 .pDetail {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
+}
+
+.navbarCategory {
+  text-decoration: none;
 }
