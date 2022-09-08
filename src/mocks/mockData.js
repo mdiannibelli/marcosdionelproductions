@@ -4,7 +4,15 @@ const Padskickshieldsimg = require.context('../assets/img/products/pads-kickshie
 const Protectionsimg = require.context('../assets/img/products/protections', true);
 const Accessoriesimg = require.context('../assets/img/products/accessories', true);
 const products = [
-    { id: '01', name: "Blue Gloves", category:"gloves", description: "Blue professional boxing gloves for competitions.", price: "45", stock:5, img: Glovesimg('./bluegloves.png'), descriptionadded: ''},
+    { id: '01', name: "Blue Gloves", category:"gloves", description: "Blue professional boxing gloves for competitions.", price: "45", stock:5, img: Glovesimg('./bluegloves.png'), descriptionadded: `Our Original Leather Boxing Gloves boast the quality and attention to detail you would expect from Revgear at an affordable price point. The simple, no-frills design is ideal for entry-level participants who want a high quality glove that is built to last through countless rigorous training sessions. Enjoy a comfortable, secure fit so you can focus on your performance. Choose your favorite color combination to match your unique sense of style.
+
+    
+    Features
+    Attached thumb for safety
+    Ultra-Lock™ hook and loop closure for secure fit and support
+    Built to last with all leather construction
+    Available in four sizes: 10, 12, 14, and 16 oz
+    Available in five color combinations: black/blue, black/red, black/yellow, black/white, and black`},
     { id: '02', name: "Red Gloves", category:"gloves", description: "Red professional boxing gloves for competitions.", price: "45", stock:5, img: Glovesimg('./redgloves.png')},
     { id: '03', name: "White Gloves", category:"gloves", description: "White professional boxing gloves for competitions.", price: "49,99", stock:5, img: Glovesimg('./whitegloves.png')},
     { id: '04', name: "Snake White Gloves", category:"gloves", description: "Snake white professional boxing gloves for competitions.", price: "60", stock:5, img: Glovesimg('./snakewhitegloves.png')},

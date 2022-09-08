@@ -25,6 +25,7 @@ export default function NavBar() {
           <NavLink className='navbarCategory' to='/category/accessories'><NavDropdown.Item href="#action/3.5">Accessories</NavDropdown.Item></NavLink>
           <NavLink className='navbarCategory' to='/'><NavDropdown.Item href="#action/3.6"><NavDropdown.Divider />All our products</NavDropdown.Item></NavLink>
           </NavDropdown>
+          <NavLink className='navbarCategory' to='/contact'><Nav.Link href="#link">Contact</Nav.Link></NavLink>
         </Nav>
       </Navbar.Collapse>
     <CartWidget></CartWidget>

@@ -74,6 +74,9 @@ code {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-row-gap: 32px;
+  padding: 10px;
+  margin: 24px;
+  margin-bottom: 72px;
 }
 
 .h1Detail {
@@ -112,4 +115,12 @@ code {
 
 .navbarCategory {
   text-decoration: none;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px;
+  margin-bottom: 48px;
 }
