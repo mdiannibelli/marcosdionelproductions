@@ -7,6 +7,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.navbar-brand {
+  display: flex;
+}
+
+.navbarLogo {
+  display: flex;
+  width: 172px;
+  height: 102px;
+}
+
+.footerLogo {
+  width: 210px;
+  height: 210px;
+}
+
+.h4Navbar{
+  text-transform: uppercase;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -52,6 +71,8 @@ code {
 
 .detailImg {
   width: 420px;
+  display: flex;
+  align-items: center;
 }
 
 .detail {
@@ -59,7 +80,7 @@ code {
 }
 
 .detailContent {
-  width: 720px;
+  width: 1020px;
 }
 
 .h1Detail {
@@ -111,6 +132,8 @@ code {
 .pDetail {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
+  overflow: hidden;
+  white-space: break-spaces;
 }
 
 .navbarCategory {

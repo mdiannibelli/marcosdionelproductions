@@ -3,6 +3,7 @@ import ItemDetail from './ItemDetail'
 import { useEffect, useState } from 'react'
 import { getData } from '../mocks/mockData';
 import {useParams} from 'react-router-dom';
+import Dropdownsize from './Dropdownsize';
 
 export default function ItemDetailContainer() {
 
