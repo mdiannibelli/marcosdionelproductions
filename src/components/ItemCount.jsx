@@ -3,8 +3,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-export default function ItemCount({initial, stock, onAdd}) {
-    const [counter, setCounter] = useState(initial);
+export default function ItemCount({initial, stock, onAdd, counter, setCounter}) {
 
     const increase = () => {
         setCounter(counter + 1);
