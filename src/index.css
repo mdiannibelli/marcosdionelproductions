@@ -119,9 +119,7 @@ code {
   justify-content: flex-end;
 }
 
-.detailContent p {
-  margin-top: 24px;
-}
+
 .h4Detail {
   font-family: 'Poppins', sans-serif;
   font-size: 1.6rem;

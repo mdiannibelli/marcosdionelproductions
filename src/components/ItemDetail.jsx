@@ -4,18 +4,32 @@ import ItemCount from './ItemCount';
 import Button from 'react-bootstrap/Button';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import { useCart } from '../context/CartContext';
+
 
 
 
 export default function ItemDetail({dataDetail}) {
-    const onAdd = () => {
-        console.log(`You've bought ${counter} ${name}`)
+    
+    const [counter, setCounter] = useState(1);
+    const [buy, setBuy] = useState(false);
+    const {name, descriptionadded, img, price, stock} = dataDetail;
+    const navigate = useNavigate();
+    const{addItem}= useCart()
+    
+    const onAdd = (id) => {
+        let purchase = {
+            id,
+            name, 
+            price, 
+            stock, 
+            img, 
+            quantity:counter
+        }
         setBuy(true);
+        addItem(purchase);
       }
-  const [counter, setCounter] = useState(1);
-  const [buy, setBuy] = useState(false);
-  const {name, descriptionadded, img, price, stock} = dataDetail;
-  const navigate = useNavigate();
+  
   return (
     <div className='detailContainer'>
         <div className='detailImg'>
@@ -29,7 +43,7 @@ export default function ItemDetail({dataDetail}) {
                 </div>
                 <Dropdownsize dataDetail={dataDetail} />  
                 <hr></hr>
-                <text className='pDetail'>{descriptionadded}</text>
+                <p className='pDetail'>{descriptionadded}</p>
             </div>
 
     </div>
