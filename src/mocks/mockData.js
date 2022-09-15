@@ -297,7 +297,7 @@ Key Features:
     { id: '35', name: "Boxing Hand Wraps", category:"accessories", description: "These inner hand wraps provides sufficient padding to your hands so you remain shielded against high impact strikes.", price: "6,54", stock:5, img: Accessoriesimg('./vendas5.png'), descriptionadded: `Keep your knee joints protected during workouts, walking and more with this wraps. These versatile wraps are designed to help you get relief from your knee discomfort. When you are experiencing knee pain, carrying out your activities of the day can become a challenge. Wearing these knee support wraps can help relieve you of that pain and can help you move around more comfortably, whether you're working or working out. They can even offer support when doing exercises such as squats and leg presses. The knee support wraps are made from a heavy-duty knitted material that stretches, ensuring proper compression during use. When you are not using them, they easily fit in a gym bag for effortless portability. Each set comes with one pair of wraps.`},
   ];
 
-export const getData = new Promise(resolve => {
+export const getData = new Promise((resolve, reject) => {
     let catalegue = true;
     setTimeout(() => {
       if(catalegue) {
