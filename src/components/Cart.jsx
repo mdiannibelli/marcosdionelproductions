@@ -3,9 +3,11 @@ import { useCart } from '../context/CartContext';
 import {NavLink} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import ItemCart from './ItemCart';
+import { useState } from 'react';
 
 export default function Cart() {
     const {cart} = useCart();
+    const [newCart, setNewCart] = useState([cart]);
     console.log('carrito', cart)
 
     if (cart.length === 0) {
@@ -23,7 +25,7 @@ export default function Cart() {
   return (
     <>
       {
-        cart.map(product => <ItemCart key={product.id} product={product} />)
+        newCart.map(product => <ItemCart key={product.id} product={product} />)
       }
     </>
   )

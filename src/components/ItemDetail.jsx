@@ -14,7 +14,7 @@ export default function ItemDetail({dataDetail}) {
     
     const [counter, setCounter] = useState(1);
     const [buy, setBuy] = useState(false);
-    const {name, descriptionadded, img, price, stock} = dataDetail;
+    const {name, descriptionadded, img, price, stock, description} = dataDetail;
     const navigate = useNavigate();
     const{addItem}= useCart()
     
@@ -25,6 +25,7 @@ export default function ItemDetail({dataDetail}) {
             price, 
             stock, 
             img, 
+            description,
             quantity:counter
         }
         setBuy(true);
@@ -39,7 +40,9 @@ export default function ItemDetail({dataDetail}) {
             <div className='detailContent'>
                 <h1 className='h1Detail'>{name}</h1>
                 <div className='counterDetail'>
-                {!buy ? <ItemCount initial={1} stock={5} onAdd={onAdd} counter={counter} setCounter={setCounter}/> : <Button variant="primary" onClick={()=>navigate('/cart')}>View cart</Button>}
+                {!buy ? <ItemCount initial={1} stock={5} onAdd={onAdd} counter={counter} setCounter={setCounter}/> : <div style={{display:'flex', gap:'24px'}}><Button variant="primary" onClick={()=>navigate('/cart')}>View cart</Button>
+                <Button variant="danger" onClick={()=>navigate('/')}>Add another product</Button></div>
+                }
                 <h4 className='h4Detail'>${price}</h4>
                 </div>
                 <Dropdownsize dataDetail={dataDetail} />  

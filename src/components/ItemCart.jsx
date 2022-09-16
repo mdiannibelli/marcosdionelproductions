@@ -1,20 +1,26 @@
-import React from 'react'
-import { useCart } from '../context/CartContext'
+import React from 'react';
+import { useCart } from '../context/CartContext';
+import Card from 'react-bootstrap/Card';
+import { useState } from 'react';
 
 export default function ItemCart({ product }) {
-    const {removeItem} = useCart()
+    const {removeItem} = useCart();
+    /* const [removeItemCart, setRemoveItemCart] = useState([removeItem]); */
   return (
     <div className='itemCart'>
-    <img src={product.img} alt={product.name} />
-      <div>
-        <p>Name: {product.name}</p>
-        <p>Amount: {product.quantity}</p>
-        <p>Price: {product.price}</p>
-        <button onClick={() =>removeItem(product.id)}>-</button>
-        <p>Total: ${product.quantity * product.price}</p>
-      </div>
-
-    </div>
+    <Card border="dark" style={{ width: '32rem', flexDirection:'row'}}>
+    <Card.Header style={{display:'flex', alignItems:'center'}}>{product.quantity}</Card.Header>
+    <Card.Header className='productImgCart'><img src={product.img}></img></Card.Header>
+    <Card.Body>
+      <Card.Title>{product.name}</Card.Title>
+      <Card.Text>{product.description}</Card.Text>
+      <Card.Text style={{display:'flex', justifyContent:'space-between'}}><h6>${product.price}</h6>
+      <div><button style={{padding:'3px', paddingTop:'0px'}} type='button' className='btn btn-outline-danger' onClick={() => removeItem(product.id)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path></svg>Delete product</button></div>
+      </Card.Text>
+   
+    </Card.Body>
+  </Card>
+  </div>
   )
 }
 
