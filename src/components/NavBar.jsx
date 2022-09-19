@@ -29,7 +29,7 @@ export default function NavBar() {
           <Nav.Link className='navbarCategory' href='/contact'><h4 className='h4Navbar'>Contact</h4></Nav.Link>
         </Nav>
       </Navbar.Collapse>
-      <NavLink className='navbarCategory' to='/cart'><CartWidget></CartWidget></NavLink>
+      <NavLink className='navbarCategory' to='/cart' style={{display:'flex', alignItems:'center'}}><CartWidget></CartWidget></NavLink>
     </Container>
   </Navbar>
   )

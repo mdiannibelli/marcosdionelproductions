@@ -7,7 +7,8 @@ import { useState } from 'react';
 
 export default function Cart() {
     const {cart} = useCart();
-    const [newCart, setNewCart] = useState([cart]);
+    const {cartTotal} = useCart();
+    const {clear} = useCart();
     console.log('carrito', cart)
 
     if (cart.length === 0) {
@@ -25,8 +26,15 @@ export default function Cart() {
   return (
     <>
       {
-        newCart.map(product => <ItemCart key={product.id} product={product} />)
+        cart.map(product => <ItemCart key={product.id} product={product} />)
       }
+      <div className="d-grid gap-3" style={{justifyContent:'center'}}>
+      <Button variant="primary" size="sm" onClick={clear}>Delete cart</Button>
+      </div>
+      <hr></hr>
+      <div style={{display:'flex', justifyContent:'flex-end', alignItems:'flex-start', gap:'12px', padding:'24px'}}><h3 className='h4Detail' style={{color:'black', fontWeight:'300'}}>TOTAL: ${cartTotal()}</h3>
+      <Button variant="danger" size="sm">Checkout</Button>
+      </div>
     </>
   )
 }

@@ -14,11 +14,11 @@ export default function ItemDetail({dataDetail}) {
     
     const [counter, setCounter] = useState(1);
     const [buy, setBuy] = useState(false);
-    const {name, descriptionadded, img, price, stock, description} = dataDetail;
+    const {name, descriptionadded, img, price, stock, description, id} = dataDetail;
     const navigate = useNavigate();
     const{addItem}= useCart()
     
-    const onAdd = (id) => {
+    const onAdd = () => {
         let purchase = {
             id,
             name, 

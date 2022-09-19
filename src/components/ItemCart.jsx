@@ -1,13 +1,12 @@
 import React from 'react';
-import { useCart } from '../context/CartContext';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
+import { useCart } from '../context/CartContext';
 
 export default function ItemCart({ product }) {
     const {removeItem} = useCart();
-    /* const [removeItemCart, setRemoveItemCart] = useState([removeItem]); */
   return (
-    <div className='itemCart'>
+    <div className='itemCart' style={{padding:'20px'}}>
     <Card border="dark" style={{ width: '32rem', flexDirection:'row'}}>
     <Card.Header style={{display:'flex', alignItems:'center'}}>{product.quantity}</Card.Header>
     <Card.Header className='productImgCart'><img src={product.img}></img></Card.Header>
