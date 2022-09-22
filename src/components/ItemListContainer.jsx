@@ -5,6 +5,9 @@ import ItemList from './ItemList';
 import SpinnerLoading from './SpinnerLoading';
 import {getData} from '../mocks/mockData';
 import {useParams} from 'react-router-dom';
+import { useInsertionEffect } from 'react';
+import { collection, getDoc, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../firebase/firebase';
 
 
 export default function ItemListContainer() {
@@ -13,10 +16,32 @@ export default function ItemListContainer() {
   const [error, setError] = useState('');
   const{categoryId}= useParams();
 
-  useEffect(() => {
+  // products w firebase
+  useEffect(() => { 
+    setLoading(true);
+    const products = categoryId ? query(collection(db, "products"), where("category", "==", categoryId)) : collection(db, "products");
+    getDocs(products)
+    .then((res) => {
+      const list = res.docs.map((product) => {
+        return {
+          id:product.id,
+          ...product.data()
+        }
+      })
+      setData(list)
+    })
+    .catch((error) =>console.log(error))
+    .finally(() =>setLoading(false))
+  }, [categoryId])
+  
+
+
+
+  // products w mock
+  /* useEffect(() => { */
     /* mockData */
     /* getData.then(res => setData(res)) */
-    getData
+    /* getData
       .then((res) => {
         if(categoryId) {
           setData(res.filter((item)=> item.category === categoryId));
@@ -31,7 +56,7 @@ export default function ItemListContainer() {
         setLoading(false);
       })
       
-  }, [categoryId])
+  }, [categoryId]) */
 
 
   return (

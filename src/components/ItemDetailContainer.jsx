@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react'
 import { getData } from '../mocks/mockData';
 import {useParams} from 'react-router-dom';
 import Dropdownsize from './Dropdownsize';
+import { collection, doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebase/firebase';
+import SpinnerLoading from './SpinnerLoading';
 
 export default function ItemDetailContainer() {
 
@@ -12,7 +15,25 @@ export default function ItemDetailContainer() {
     const [error, setError] = useState('');
     const{id}= useParams();
 
+
+    // products w firebase
     useEffect(() => {
+      const coleccionProductos = collection(db, "products")
+      const referenciaDoc = doc(coleccionProductos, id)
+      getDoc(referenciaDoc)
+      .then((res)=>{
+        setDataDetail({
+          id:res.id,
+          ...res.data()
+        })
+      })
+      .catch((error)=> console.log(error))
+      .finally(()=> setLoading(false))
+    },[])
+
+
+    // products w mock
+   /*  useEffect(() => {
       getData.then((res) => setDataDetail(res.find((item) => item.id === id))) 
       .catch((error) => {
         console.log(error);
@@ -20,10 +41,12 @@ export default function ItemDetailContainer() {
       .finally(() => {
         setLoading(false);
       })
-    }, [id])
+    }, [id]) */
     
 
   return (
-    <ItemDetail dataDetail={dataDetail} />  
+    <>
+    {loading ? <SpinnerLoading />: <ItemDetail dataDetail={dataDetail} />}
+    </>
   )
 }
