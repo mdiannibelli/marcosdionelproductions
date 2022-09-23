@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
-import {NavLink} from 'react-router-dom';
+import {Navigate, NavLink} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import ItemCart from './ItemCart';
 import { useState } from 'react';
@@ -9,6 +10,7 @@ export default function Cart() {
     const {cart} = useCart();
     const {cartTotal} = useCart();
     const {clear} = useCart();
+    const navigate = useNavigate();
     console.log('carrito', cart)
 
     if (cart.length === 0) {
@@ -33,7 +35,7 @@ export default function Cart() {
       </div>
       <hr></hr>
       <div style={{display:'flex', justifyContent:'flex-end', alignItems:'flex-start', gap:'12px', padding:'24px'}}><h3 className='h4Detail' style={{color:'black', fontWeight:'300'}}>TOTAL: ${cartTotal()}</h3>
-      <Button variant="danger" size="sm">Checkout</Button>
+      <Button variant="danger" size="sm" onClick={()=>navigate('/checkout')}>Checkout</Button>
       </div>
     </>
   )
