@@ -34,9 +34,8 @@ export default function Checkout() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const onSubmit = data => { 
-        if(errors.register > 0) {
-        setAlert(true)
-        console.log("aca")        
+        if(Object.keys(errors).length !== 0) {
+        console.log("error")        
         
     }else {
         setAlert(false)    
@@ -102,12 +101,14 @@ if(loading) {
                 name="fullname"
                 {...register('fullname', {
                     required: true,
+                    minLength: 4,
                     maxLength: 18
                 })}
                 onChange={databuyer}
                 />
                 {errors.fullname?.type === 'required' && <p style={{color:'red', fontSize:'0.9rem'}}>The field is required</p>}
-                {errors.fullname?.type === 'maxLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be less than 18 characters </p>}
+                {errors.fullname?.type === 'minLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be contain more characters</p>}
+                {errors.fullname?.type === 'maxLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be less than 18 characters</p>}
                 
                 </FloatingLabel>
             </Col>
@@ -137,12 +138,14 @@ if(loading) {
                 name="dni"
                 {...register('dni', {
                     required: true,
+                    minLength: 8,
                     maxLength: 11
                 })}
                 onChange={databuyer}
                 
             />
             {errors.dni?.type === 'required' && <p style={{color:'red', fontSize:'0.9rem'}}>The field is required</p>}
+            {errors.dni?.type === 'minLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be contain more chracters</p>}
             {errors.dni?.type === 'maxLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be less than 11 characters </p>}
             <label htmlFor="floatingPasswordCustom">DNI</label>
             </Form.Floating>
@@ -154,11 +157,13 @@ if(loading) {
                 name="email"
                 {...register('email', {
                     required: true,
+                    minLength: 10,
                     pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
                 })}
                 onChange={databuyer}
             />
             {errors.email?.type === 'required' && <p style={{color:'red', fontSize:'0.9rem'}}>The field is required</p>}
+            {errors.email?.type === 'minLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be contain more chracters</p>}
             {errors.email?.type === 'pattern' && <p style={{color:'red', fontSize:'0.9rem'}}>Email format incorrect</p>}
             <label htmlFor="floatingInputCustom">Email address</label>
             </Form.Floating>
@@ -170,11 +175,13 @@ if(loading) {
                 name="phone"
                 {...register('phone', {
                     required: true,
+                    minLength: 9,
                     maxLength: 10
                 })}
                 onChange={databuyer}
             />
             {errors.phone?.type === 'required' && <p style={{color:'red', fontSize:'0.9rem'}}>The field is required</p>}
+            {errors.phone?.type === 'minLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be contain more chracters</p>}
             {errors.phone?.type === 'maxLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be less than 10 characters </p>}
             <label htmlFor="floatingInputCustom">Phone</label>
             </Form.Floating>
@@ -186,11 +193,13 @@ if(loading) {
                 name="country"
                 {...register('country', {
                     required: true,
+                    minLength: 4,
                     maxLength: 14
                 })}
                 onChange={databuyer}
             />
             {errors.country?.type === 'required' && <p style={{color:'red', fontSize:'0.9rem'}}>The field is required</p>}
+            {errors.country?.type === 'minLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be contain more chracters</p>}
             {errors.country?.type === 'maxLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be less than 14 characters </p>}
             <label htmlFor="floatingPasswordCustom">Country</label>
             </Form.Floating>
@@ -202,12 +211,14 @@ if(loading) {
                 name="adress"
                 {...register('adress', {
                     required: true,
-                    maxLength: 18
+                    minLength: 8,
+                    maxLength: 20
                 })}
                 onChange={databuyer}
             />
             {errors.adress?.type === 'required' && <p style={{color:'red', fontSize:'0.9rem'}}>The field is required</p>}
-            {errors.adress?.type === 'maxLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be less than 18 characters </p>}
+            {errors.adress?.type === 'minLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be contain more chracters</p>}
+            {errors.adress?.type === 'maxLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be less than 20 characters </p>}
             <label htmlFor="floatingPasswordCustom">Adress</label>
             </Form.Floating>
             <Form.Floating className="mb-3">
@@ -218,11 +229,13 @@ if(loading) {
                 name="city"
                 {...register('city', {
                     required: true,
+                    minLength: 4,
                     maxLength: 18
                 })}
                 onChange={databuyer}
             />
             {errors.city?.type === 'required' && <p style={{color:'red', fontSize:'0.9rem'}}>The field is required</p>}
+            {errors.city?.type === 'minLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be contain more chracters</p>}
             {errors.city?.type === 'maxLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be less than 18 characters </p>}
             <label htmlFor="floatingPasswordCustom">City</label>
             </Form.Floating>
@@ -234,11 +247,13 @@ if(loading) {
                 name="postalcode"
                 {...register('postalcode', {
                     required: true,
+                    minLength: 4,
                     maxLength: 5
                 })}
                 onChange={databuyer}
             />
             {errors.postalcode?.type === 'required' && <p style={{color:'red', fontSize:'0.9rem'}}>The field is required</p>}
+            {errors.postalcode?.type === 'minLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be contain more chracters</p>}
             {errors.postalcode?.type === 'maxLength' && <p style={{color:'red', fontSize:'0.9rem'}}>The field must be less than 5 characters </p>}
             <label htmlFor="floatingPasswordCustom">Zip/Postal Code</label>
             </Form.Floating>
@@ -249,6 +264,9 @@ if(loading) {
             </div>
             </div>
             </div>
+            <div style={{ color: 'red' }}>
+          {Object.keys(errors).length > 0 && <AlertCheckout/>}
+        </div>
             </form>
             {alert && <AlertCheckout/>}
     </div>
