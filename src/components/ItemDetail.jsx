@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import ReactImageMagnify from 'react-image-magnify';
 
 
 
